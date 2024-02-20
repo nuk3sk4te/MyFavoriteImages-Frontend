@@ -2,5 +2,9 @@
 
 //pages
 @import './pages/home';
+@import './pages/favoriteImage';
+@import './pages/addImage';
 
 //components
+@import './components/cardImage';
+@import './components/cardImageById'

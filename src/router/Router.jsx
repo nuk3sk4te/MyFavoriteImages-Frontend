@@ -1,7 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from "../layout/Layout";
 import Home from '../pages/Home';
-import FavoriteImages from '../pages/FavoriteImages';
+import FavoriteImage from '../pages/FavoriteImage';
+import FavoriteImageById from '../pages/FavoriteImageById';
+import AddOrUpdateImage from '../pages/AddOrUpdateImage';
+import DeleteImage from '../pages/DeleteImage';
 
 export const router = createBrowserRouter([
     {
@@ -14,8 +17,24 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/images",
-                element: <FavoriteImages />
+                element: <FavoriteImage />
             },
+            {
+                path: "/image/:id",
+                element: <FavoriteImageById />
+            },
+            {
+                path: "/add-image",
+                element: <AddOrUpdateImage />
+            },
+            {
+                path: "/update-image/:id",
+                element: <AddOrUpdateImage />
+            },
+            {
+                path: "/delete/:id",
+                element: <DeleteImage />
+            }
         ]
     }
 ]); 
