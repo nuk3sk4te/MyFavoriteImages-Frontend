@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import CardImageById from "../components/CardImageById.jsx";
 import { getImageById } from "../services/ImageService.jsx"
 
-const FavoriteImage = () => {
+const FavoriteImageById = () => {
 
     const [image, setImage] = useState([]);
     const { id } = useParams();
@@ -26,4 +26,4 @@ const FavoriteImage = () => {
     )
 }
 
-export default FavoriteImage;
+export default FavoriteImageById;
