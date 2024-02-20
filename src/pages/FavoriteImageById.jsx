@@ -17,7 +17,7 @@ const FavoriteImageById = () => {
             const response = await getImageById(id)
             setImage(response);
         } catch (error) {
-            console.error('Error trying to fetch images', error);
+            console.error('Error trying to fetch image', error);
         }
     }
 

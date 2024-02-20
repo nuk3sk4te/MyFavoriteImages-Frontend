@@ -31,19 +31,18 @@ export const addImage = async (data) => {
         const response = await axios.post(API_BASE_URL, data);
         return response.data;
     } catch (error) {
-        console.error('Error al crear datos:', error);
+        console.error('Error trying to save image:', error);
         throw error;
     }
 };
 
 // Solicitud PUT
-export const updateImage = async (data, id) => {
-
+export const updateImage = async (id, image) => {
     try {
-        const response = await axios.update(API_BASE_URL + '/' + id);
+        const response = await axios.put(API_BASE_URL + '/' + id, image);
         return response.data;
     } catch (error) {
-        console.error('Error trying to fetch image', error);
+        console.error('Error trying to update image', error);
         throw error;
     }
 };
