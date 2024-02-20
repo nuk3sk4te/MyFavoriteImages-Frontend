@@ -3,7 +3,8 @@ import Layout from "../layout/Layout";
 import Home from '../pages/Home';
 import FavoriteImage from '../pages/FavoriteImage';
 import FavoriteImageById from '../pages/FavoriteImageById';
-import AddImage from '../pages/AddImage';
+import AddOrUpdateImage from '../pages/AddOrUpdateImage';
+import DeleteImage from '../pages/DeleteImage';
 
 export const router = createBrowserRouter([
     {
@@ -24,12 +25,16 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/add-image",
-                element: <AddImage />
+                element: <AddOrUpdateImage />
             },
             {
                 path: "/update-image/:id",
-                element: <AddImage />
+                element: <AddOrUpdateImage />
             },
+            {
+                path: "/delete/:id",
+                element: <DeleteImage />
+            }
         ]
     }
 ]); 

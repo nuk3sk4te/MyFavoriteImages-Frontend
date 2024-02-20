@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import editIcon from '/edit.svg'
+import deleteIcon from '/delete.svg'
 
 const CardImageList = ({ image }) => {
 
@@ -17,9 +18,14 @@ const CardImageList = ({ image }) => {
                 <Link to={`/image/${image.id}`} className="image-title"><h4>{image.title}</h4></Link>
                 <p className="card-text description-text">{image.description}</p>
             </div>
-            <Link to={`/update-image/${image.id}`} className="icons">
+            <div className='icons-container'>
+                <Link to={`/update-image/${image.id}`} className="icons">
                     <img src={editIcon} alt="update" />
                 </Link>
+                <Link to={`/delete/${image.id}`} className="icons">
+                    <img src={deleteIcon} alt="update" />
+                </Link>
+            </div>
         </div>
     )
 }

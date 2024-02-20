@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { test, describe, expect, vi, beforeEach } from "vitest";
 import axios from 'axios';
-import { getAllImages, addImage, getImageById, updateImage } from "../services/ImageService.jsx"
+import { getAllImages, addImage, getImageById, updateImage, deleteImage } from "../services/ImageService.jsx"
 
 vi.mock('axios')
 //GET
@@ -68,5 +68,18 @@ describe('updateImage function', () => {
 
         expect(axios.put).toHaveBeenCalledWith(`http://localhost:3000/images/${imageId}`, updatedImageData);
         expect(result).toEqual({ id: imageId, ...updatedImageData });
+    });
+});
+
+//DELETE
+describe('deleteImage function', () => {
+    test('makes a DELETE request to delete an image', async () => {
+        const imageId = 1;
+
+        axios.delete.mockResolvedValue();
+
+        await deleteImage(imageId);
+
+        expect(axios.delete).toHaveBeenCalledWith(`http://localhost:3000/images/${imageId}`);
     });
 });

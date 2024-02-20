@@ -46,3 +46,13 @@ export const updateImage = async (id, image) => {
         throw error;
     }
 };
+
+// Solicitud DELETE
+export const deleteImage = async (id) => {
+    try {
+        await axios.delete(API_BASE_URL + '/' + id);
+    } catch (error) {
+        console.error('Error trying to delete image', error);
+        throw error;
+    }
+};

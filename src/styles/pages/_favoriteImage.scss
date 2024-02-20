@@ -37,4 +37,13 @@ body {
         justify-content: center;
         flex-wrap: wrap;
     }
+
+    .icons-container{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .icons{
+        margin: 5%
+    }
 }

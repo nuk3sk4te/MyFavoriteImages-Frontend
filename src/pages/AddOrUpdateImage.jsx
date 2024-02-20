@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { addImage, updateImage, getImageById } from "../services/ImageService.jsx"
 import { Link, useNavigate, useParams  } from "react-router-dom";
 
-const AddImage = () => {
+const AddOrUpdateImage = () => {
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -105,4 +105,4 @@ const AddImage = () => {
     )
 }
 
-export default AddImage;
+export default AddOrUpdateImage;
