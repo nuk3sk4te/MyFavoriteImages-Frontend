@@ -16,14 +16,15 @@ const FavoriteImages = () => {
         } catch (error) {
             console.error('Error trying to fetch images', error);
         }
-
     }
+    
     return (
         <div className='images'>
+            <h1 className="images-title">My favorite Images</h1>
             <div className='cards-container'>
                 {
-                    images.map((myImage) =>
-                        <CardImage key={myImage.id} image={myImage} />
+                    images.map((image) =>
+                        <CardImage key={image.id} image={image} />
                     )
                 }
             </div>

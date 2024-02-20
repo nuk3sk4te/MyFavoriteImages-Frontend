@@ -11,3 +11,15 @@ export const getAllImages = async () => {
         throw error;
     }
 };
+
+// Solicitud GET
+export const getImageById = async (id) => {
+
+    try {
+        const response = await axios.get(API_BASE_URL + '/' + id);
+        return response.data;
+    } catch (error) {
+        console.error('Error trying to fetch image', error);
+        throw error;
+    }
+};
