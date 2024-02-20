@@ -2,7 +2,7 @@ body {
     font-family: sans-serif;
 }
 
-.images{
+.images {
     display: flex;
     flex-direction: column;
 
@@ -10,6 +10,24 @@ body {
         text-decoration: none;
         color: $color-black;
         text-align: center;
+    }
+
+    .add-new-image {
+        display: flex;
+        justify-content: end;
+        width: 100%;
+        margin: 2%;
+
+        &-link {
+            width: 20%;
+            text-decoration: none;
+            color: black;
+        }
+
+        &-icon,
+        &-text {
+            padding: 2%
+        }
     }
 
     .cards-container {
@@ -20,4 +38,3 @@ body {
         flex-wrap: wrap;
     }
 }
-

@@ -23,3 +23,27 @@ export const getImageById = async (id) => {
         throw error;
     }
 };
+
+// Solicitud POST
+export const addImage = async (data) => {
+
+    try {
+        const response = await axios.post(API_BASE_URL, data);
+        return response.data;
+    } catch (error) {
+        console.error('Error al crear datos:', error);
+        throw error;
+    }
+};
+
+// Solicitud PUT
+export const updateImage = async (data, id) => {
+
+    try {
+        const response = await axios.update(API_BASE_URL + '/' + id);
+        return response.data;
+    } catch (error) {
+        console.error('Error trying to fetch image', error);
+        throw error;
+    }
+};

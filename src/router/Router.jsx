@@ -3,6 +3,7 @@ import Layout from "../layout/Layout";
 import Home from '../pages/Home';
 import FavoriteImage from '../pages/FavoriteImage';
 import FavoriteImageById from '../pages/FavoriteImageById';
+import AddImage from '../pages/AddImage';
 
 export const router = createBrowserRouter([
     {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
             {
                 path: "/image/:id",
                 element: <FavoriteImageById />
+            },
+            {
+                path: "/add-image",
+                element: <AddImage />
             },
         ]
     }
