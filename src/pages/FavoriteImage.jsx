@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import CardImage from "../components/CardImage.jsx";
 import { getAllImages } from "../services/ImageService.jsx"
 
-const FavoriteImages = () => {
+const FavoriteImage = () => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
@@ -32,4 +32,4 @@ const FavoriteImages = () => {
     )
 }
 
-export default FavoriteImages
+export default FavoriteImage

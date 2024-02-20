@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { render, screen } from "@testing-library/react";
 import { test, describe, expect, vi, beforeEach } from "vitest";
-import FavoriteImages from '../pages/FavoriteImages';
+import FavoriteImages from '../pages/FavoriteImage.jsx';
 import axios from 'axios';
 import { getAllImages, getImageById } from "../services/ImageService.jsx"
 

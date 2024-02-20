@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Layout from "../layout/Layout";
 import Home from '../pages/Home';
-import FavoriteImages from '../pages/FavoriteImages';
+import FavoriteImage from '../pages/FavoriteImage';
 import FavoriteImageById from '../pages/FavoriteImageById';
 
 export const router = createBrowserRouter([
@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/images",
-                element: <FavoriteImages />
+                element: <FavoriteImage />
             },
             {
                 path: "/image/:id",
