@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { addImage } from "../services/ImageService.jsx"
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react"
+import { addImage, updateImage, getImageById } from "../services/ImageService.jsx"
+import { Link, useNavigate, useParams  } from "react-router-dom";
 
 const AddImage = () => {
 
@@ -8,25 +8,57 @@ const AddImage = () => {
     const [description, setDescription] = useState('');
     const [url, setUrl] = useState('');
     const navigate = useNavigate();
+    const { id } = useParams();
 
 
-    const saveImage = async (e) => {
+    const saveOrUpdateImage = async (e) => {
         e.preventDefault();
-        try {
-            await addImage({
-                title: title,
-                description: description,
-                url: url
-            });
-            navigate('/images');
-        } catch (error) {
-            console.error('Error trying to save the image:', error);
+        if(id) {
+            e.preventDefault();
+            const image = { title, description, url };
+            try {
+                await updateImage(id, image);
+                navigate('/images');
+            } catch (error) {
+                console.error('Error trying to update the image:', error);
+            }
+        } else {
+            try {
+                await addImage({
+                    title: title,
+                    description: description,
+                    url: url
+                });
+                navigate('/images');
+            } catch (error) {
+                console.error('Error trying to save the image:', error);
+            }
+        }
+    }
+
+    useEffect(() => {
+        if (id) {
+            getImageById(id).then((response) => {
+                setTitle(response.title)
+                setDescription(response.description)
+                setUrl(response.url)
+            }).catch(error => {
+                console.log(error)
+            })
+        }
+    }, [id])
+
+    const actionTitle = () => {
+        if (id) {
+            return <h2>Update Image</h2>
+        } else {
+            return <h2>Add New Image</h2>
         }
     }
 
     return (
         <div className="add-update-form">
-            <div className="text-center">Add New Image</div>
+            <div className="text-center">{actionTitle()}</div>
             <form>
                 <div className="form-group mb-2">
                     <label className="form-label">Title</label>
@@ -65,7 +97,7 @@ const AddImage = () => {
                     />
                 </div>
                 <div className="d-flex">
-                    <button className="btn btn-outline-success m-2" onClick={(e) => saveImage(e)}>Save</button>
+                    <button className="btn btn-outline-success m-2" onClick={(e) => saveOrUpdateImage(e)}>Save</button>
                     <Link to='/images' className="btn btn-outline-danger m-2">Cancel</Link>
                 </div>
             </form>

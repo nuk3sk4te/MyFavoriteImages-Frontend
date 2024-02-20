@@ -4,7 +4,6 @@ import Home from '../pages/Home';
 import FavoriteImage from '../pages/FavoriteImage';
 import FavoriteImageById from '../pages/FavoriteImageById';
 import AddImage from '../pages/AddImage';
-import UpdateImage from '../pages/UpdateImage';
 
 export const router = createBrowserRouter([
     {
@@ -29,7 +28,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/update-image/:id",
-                element: <UpdateImage />
+                element: <AddImage />
             },
         ]
     }
