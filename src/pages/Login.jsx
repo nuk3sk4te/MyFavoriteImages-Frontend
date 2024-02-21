@@ -39,10 +39,10 @@ const Login = () => {
     };
 
     return (
-        <div className="col-md-12">
-            <div className="card card-container">
+        <div className="login-form">
+            <div>
                 <form onSubmit={handleLogin}>
-                    <div className="form-group">
+                    <div className="form-group mb-2">
                         <label htmlFor="username">Username</label>
                         <input
                             type="text"
@@ -54,7 +54,7 @@ const Login = () => {
                         />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group mb-2">
                         <label htmlFor="password">Password</label>
                         <input
                             type="password"
@@ -66,14 +66,14 @@ const Login = () => {
                         />
                     </div>
 
-                    <div className="form-group">
-                        <button className="btn btn-primary btn-block" >
+                    <div className="form-group mb-2">
+                        <button className="btn btn-outline-success" >
                             <span>Login</span>
                         </button>
                     </div>
 
                     {error && (
-                        <div className="form-group">
+                        <div className="form-group mb-2">
                             <div className="alert alert-danger" role="alert">
                                 {error}
                             </div>

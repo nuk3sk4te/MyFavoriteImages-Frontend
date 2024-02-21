@@ -39,9 +39,9 @@ const AddOrUpdateImage = () => {
     useEffect(() => {
         if (id) {
             ImageService.getImageById(id).then((response) => {
-                setTitle(response.title)
-                setDescription(response.description)
-                setUrl(response.url)
+                setTitle(response.data.title)
+                setDescription(response.data.description)
+                setUrl(response.data.url)
             }).catch(error => {
                 console.log(error)
             })
