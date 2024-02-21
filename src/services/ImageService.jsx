@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:3000/images";
+const API_BASE_URL_JsonServer = "http://localhost:3000/images";
+const API_BASE_URL = "http://localhost:8080/api/v1";
 const token = localStorage.getItem("auth_token");
 const userId = localStorage.getItem("auth_id");
 const headers = {
@@ -13,7 +14,7 @@ const headers = {
 // Solicitud GET
 const getAllImages = async () => {
     try {
-        const response = await axios.get(`http://localhost:8080/api/v1/users/${userId}/images`,
+        const response = await axios.get(`${API_BASE_URL}/users/${userId}/images`,
             headers
         );
         return response.data;
@@ -25,9 +26,10 @@ const getAllImages = async () => {
 
 // Solicitud GET
 const getImageById = async (id) => {
-
     try {
-        const response = await axios.get(API_BASE_URL + '/' + id);
+        const response = await axios.get(`${API_BASE_URL}/images/${id}`,
+            headers
+        );
         return response.data;
     } catch (error) {
         console.error('Error trying to fetch image', error);
@@ -39,7 +41,7 @@ const getImageById = async (id) => {
 const addImage = async (data) => {
 
     try {
-        const response = await axios.post(API_BASE_URL, data);
+        const response = await axios.post(API_BASE_URL_JsonServer, data);
         return response.data;
     } catch (error) {
         console.error('Error trying to save image:', error);
@@ -50,7 +52,7 @@ const addImage = async (data) => {
 // Solicitud PUT
 const updateImage = async (id, image) => {
     try {
-        const response = await axios.put(API_BASE_URL + '/' + id, image);
+        const response = await axios.put(API_BASE_URL_JsonServer + '/' + id, image);
         return response.data;
     } catch (error) {
         console.error('Error trying to update image', error);
@@ -61,7 +63,7 @@ const updateImage = async (id, image) => {
 // Solicitud DELETE
 const deleteImage = async (id) => {
     try {
-        await axios.delete(API_BASE_URL + '/' + id);
+        await axios.delete(API_BASE_URL_JsonServer + '/' + id);
     } catch (error) {
         console.error('Error trying to delete image', error);
         throw error;

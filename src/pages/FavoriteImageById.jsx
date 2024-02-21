@@ -15,7 +15,7 @@ const FavoriteImageById = () => {
     const imageById = async (id) => {
         try {
             const response = await ImageService.getImageById(id)
-            setImage(response);
+            setImage(response.data);
         } catch (error) {
             console.error('Error trying to fetch image', error);
         }
