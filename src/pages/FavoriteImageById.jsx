@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CardImageById from "../components/CardImageById.jsx";
-import { getImageById } from "../services/ImageService.jsx"
+import ImageService from "../services/ImageService.jsx"
 
 const FavoriteImageById = () => {
 
@@ -14,7 +14,7 @@ const FavoriteImageById = () => {
 
     const imageById = async (id) => {
         try {
-            const response = await getImageById(id)
+            const response = await ImageService.getImageById(id)
             setImage(response);
         } catch (error) {
             console.error('Error trying to fetch image', error);

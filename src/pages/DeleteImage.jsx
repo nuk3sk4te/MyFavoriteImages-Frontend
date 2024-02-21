@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { deleteImage } from "../services/ImageService.jsx"
+import ImageService from "../services/ImageService.jsx"
 import { useNavigate, useParams } from "react-router-dom";
 
 const DeleteImage = () => {
@@ -9,7 +9,7 @@ const DeleteImage = () => {
     useEffect(() => {
         const deleteImageAsync = async () => {
             try {
-                await deleteImage(id);
+                await ImageService.deleteImage(id);
             } catch (error) {
                 console.log(error);
             }

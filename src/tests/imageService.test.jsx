@@ -1,37 +1,37 @@
 import '@testing-library/jest-dom';
 import { test, describe, expect, vi, beforeEach } from "vitest";
 import axios from 'axios';
-import { getAllImages, addImage, getImageById, updateImage, deleteImage } from "../services/ImageService.jsx"
+import ImageService from "../services/ImageService.jsx"
 
 vi.mock('axios')
 //GET
 describe('Get images from Json Server API using axios', () => {
     beforeEach(() => {
         axios.get.mockReset()
-    })
+    });
     test('makes a GET request to fetch all images', async () => {
         const imagesMock = [{ id: 1, title: "Árbol", }, { id: 2, title: "Lago" }]
         axios.get.mockResolvedValue({
             data: imagesMock,
         })
-
-        const images = await getAllImages()
+    
+        const images = await ImageService.getAllImages()
         const URL = "http://localhost:3000/images"
         expect(axios.get).toHaveBeenCalledWith(URL)
         expect(images).toStrictEqual(imagesMock)
     }),
-        test('makes a GET request to fetch image by id', async () => {
-            const imageId = 1;
-            const imageMock = [{ id: 1, title: "Árbol", }]
-            axios.get.mockResolvedValue({
-                data: imageMock,
-            })
-
-            const image = await getImageById(imageId)
-            const URL = `http://localhost:3000/images/${imageId}`
-            expect(axios.get).toHaveBeenCalledWith(URL)
-            expect(image).toEqual(imageMock)
+    test('makes a GET request to fetch image by id', async () => {
+        const imageId = 1;
+        const imageMock = [{ id: 1, title: "Árbol", }]
+        axios.get.mockResolvedValue({
+            data: imageMock,
         })
+
+        const image = await ImageService.getImageById(imageId)
+        const URL = `http://localhost:3000/images/${imageId}`
+        expect(axios.get).toHaveBeenCalledWith(URL)
+        expect(image).toEqual(imageMock)
+    })
 });
 
 //POST
@@ -45,7 +45,7 @@ describe('addImage function', () => {
 
         axios.post.mockResolvedValue({ data: { id: 1, ...imageData } });
 
-        const result = await addImage(imageData);
+        const result = await ImageService.addImage(imageData);
 
         expect(axios.post).toHaveBeenCalledWith('http://localhost:3000/images', imageData);
         expect(result).toEqual({ id: 1, ...imageData });
@@ -64,7 +64,7 @@ describe('updateImage function', () => {
 
         axios.put.mockResolvedValue({ data: { id: imageId, ...updatedImageData } });
 
-        const result = await updateImage(imageId, updatedImageData);
+        const result = await ImageService.updateImage(imageId, updatedImageData);
 
         expect(axios.put).toHaveBeenCalledWith(`http://localhost:3000/images/${imageId}`, updatedImageData);
         expect(result).toEqual({ id: imageId, ...updatedImageData });
@@ -78,7 +78,7 @@ describe('deleteImage function', () => {
 
         axios.delete.mockResolvedValue();
 
-        await deleteImage(imageId);
+        await ImageService.deleteImage(imageId);
 
         expect(axios.delete).toHaveBeenCalledWith(`http://localhost:3000/images/${imageId}`);
     });

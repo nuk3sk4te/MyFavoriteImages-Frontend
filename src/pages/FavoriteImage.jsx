@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import CardImage from "../components/CardImage.jsx";
-import { getAllImages } from "../services/ImageService.jsx"
+import ImageService from "../services/ImageService.jsx"
 import { Link } from "react-router-dom";
 import plusIcon from '/plus.svg'
 
@@ -13,8 +13,8 @@ const FavoriteImage = () => {
 
     const imagesList = async () => {
         try {
-            const response = await getAllImages()
-            setImages(response);
+            const response = await ImageService.getAllImages()
+            setImages(response.data);
         } catch (error) {
             console.error('Error trying to fetch images', error);
         }
