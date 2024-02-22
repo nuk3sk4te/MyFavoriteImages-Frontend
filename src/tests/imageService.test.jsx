@@ -3,6 +3,8 @@ import { test, describe, expect, vi, beforeEach } from "vitest";
 import axios from 'axios';
 import ImageService from "../services/ImageService.jsx"
 
+//These test only work without authentication!!!
+
 vi.mock('axios')
 //GET
 describe('Get images from Json Server API using axios', () => {

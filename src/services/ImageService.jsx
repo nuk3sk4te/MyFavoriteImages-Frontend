@@ -43,7 +43,6 @@ const addImage = async (data) => {
         const response = await axios.post(`${API_BASE_URL}/images`, data,
             headers
         );
-        console.log(response.data.data)
         return response.data.data;
     } catch (error) {
         console.error('Error trying to save image:', error);
