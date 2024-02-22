@@ -3,7 +3,7 @@ Parte frontend de aplicación creada para gestión de imagenes en la cual se pue
 
 Enlace para la parte backend:
 
-[https://github.com/crismouta/MyFavoriteImages_Back.git](https://github.com/crismouta/MyFavoriteImages-Backend.git)
+https://github.com/crismouta/MyFavoriteImages-Backend.git
 
 # Vistas
 
