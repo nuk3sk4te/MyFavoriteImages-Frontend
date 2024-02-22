@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { addImage, updateImage, getImageById } from "../services/ImageService.jsx"
+import ImageService from "../services/ImageService.jsx"
 import { Link, useNavigate, useParams  } from "react-router-dom";
 
 const AddOrUpdateImage = () => {
@@ -17,14 +17,14 @@ const AddOrUpdateImage = () => {
             e.preventDefault();
             const image = { title, description, url };
             try {
-                await updateImage(id, image);
+                await ImageService.updateImage(id, image);
                 navigate('/images');
             } catch (error) {
                 console.error('Error trying to update the image:', error);
             }
         } else {
             try {
-                await addImage({
+                await ImageService.addImage({
                     title: title,
                     description: description,
                     url: url
@@ -38,10 +38,10 @@ const AddOrUpdateImage = () => {
 
     useEffect(() => {
         if (id) {
-            getImageById(id).then((response) => {
-                setTitle(response.title)
-                setDescription(response.description)
-                setUrl(response.url)
+            ImageService.getImageById(id).then((response) => {
+                setTitle(response.data.title)
+                setDescription(response.data.description)
+                setUrl(response.data.url)
             }).catch(error => {
                 console.log(error)
             })
