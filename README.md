@@ -67,13 +67,21 @@ Imagenes:
 -   Layout para rutas
 -   Componentes
 -   Axios
--   Servicios para llamadas a la API
+-   Servicio para llamadas a la API
+-   Servicio para authentication
 -   Tests
 
 
 ## Herramientas y tecnologías utilizadas
 - React
+- Sass
+- Bootstrap
 - Json Server
 - Vite
 - Vitest
 - Visual Code Studio
+
+## Siguientes pasos
+- Gestionar registro de usuarios desde el front (logica de back ya creada)
+- Tests de authentication en front
+
