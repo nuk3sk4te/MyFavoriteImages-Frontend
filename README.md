@@ -45,6 +45,8 @@ Galeria
 
 `npm run dev`
 
+`para funcionar correctamente mantener el servidor (parte backend) en running`
+
 ## Datos de prueba
 
 Usuario 1:
