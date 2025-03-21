@@ -1,18 +1,23 @@
 pipeline {
     agent any
     stages {
-        stage('Setup Docker') {
+        stage('Check Docker') {
             steps {
-          //      sh 'ln -sf /usr/local/bin/docker-host /usr/bin/docker'
             sh 'docker --version'
-          //  sh 'docker-compose --version'  //Docker compose is not installed in the Jenkins server
-            sh 'whoami'            
+          
             }
         }
 
         stage('Build') {
             steps {
             sh 'docker build --no-cache -t myfavoriteimages-frontend .'
+            }
+
+         }
+
+        stage('Deploy') {
+            steps {
+            sh 'docker run -d -p 3000:3000 myfavoriteimages-frontend'
             }
 
          }
